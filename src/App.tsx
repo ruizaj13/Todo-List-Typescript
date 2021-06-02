@@ -26,6 +26,12 @@ const App: FC = () => {
     setDeadline(0);
   }
 
+  const deleteTask = (taskToDelete: string): void => {
+    setList(list.filter((task) => {
+      return task.taskName !== taskToDelete
+    }))
+  }
+
   return (
     <div className='App'>
       <div className='header'>
@@ -36,8 +42,8 @@ const App: FC = () => {
           <button onClick={addTask}> Add Task </button>
       </div>
       <div className='todoList'>
-        {list.map((task: taskInterface, key: number) => {
-          return <TodoTask key={key}/>;
+        {list.map((task: TaskInterface, key: number) => {
+          return <TodoTask key={key} task={task} deleteTask={deleteTask}/>;
         })} 
       </div>
     </div>
