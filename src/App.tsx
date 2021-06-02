@@ -1,6 +1,7 @@
 import React, {FC, ChangeEvent, useState} from 'react';
 import {TaskInterface} from './interfaces';
 import './App.css';
+import TodoTask from './components/TodoTask';
 
 const App: FC = () => {
   const [task, setTask] = useState<string>('');
@@ -34,7 +35,10 @@ const App: FC = () => {
           </div>
           <button onClick={addTask}> Add Task </button>
       </div>
-      <div className='todoList'> 
+      <div className='todoList'>
+        {list.map((task: taskInterface, key: number) => {
+          return <TodoTask key={key}/>;
+        })} 
       </div>
     </div>
   );
