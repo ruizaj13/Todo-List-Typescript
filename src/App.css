@@ -46,3 +46,8 @@ body {
   padding-left: 10px;
   cursor: pointer;
 }
+
+.todoList {
+  flex: 70%;
+  width: 100%;
+}
